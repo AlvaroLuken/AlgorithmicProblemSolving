@@ -1,4 +1,4 @@
-import java.util.*;
+
 import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,41 +8,41 @@ import java.util.Arrays;
 public class Main {
 
 
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
 
-		Scanner scanner = new Scanner(System.in);
-		
+    Scanner scanner = new Scanner(System.in);
+    
 
-		int base1 = scanner.nextInt();
-		int base2 = scanner.nextInt();
+    int base1 = scanner.nextInt();
+    int base2 = scanner.nextInt();
 
-		String originalValue = scanner.next();
+    String originalValue = scanner.next();
 
     
 
 
-		// System.out.println(Integer.toString(Integer.parseInt(og, base1), base2));
+    // System.out.println(Integer.toString(Integer.parseInt(og, base1), base2));
 
-		String res = changeBase(base1, base2, originalValue);
+    String res = changeBase(base1, base2, originalValue);
 
-		System.out.print(res);
-
-
+    System.out.print(res);
 
 
 
-	}
 
-	public static String changeBase(int base1, int base2, String originalValue) {
+
+  }
+
+  public static String changeBase(int base1, int base2, String originalValue) {
 
 
 
     String errorMessage = originalValue + " is an illegal base " + base1 + " number";
 
     if(base1 > 16) {
-			return errorMessage;
-		} 
+      return errorMessage;
+    } 
     
     HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 
@@ -58,7 +58,7 @@ public class Main {
     String str = " ";
     int counter = 0;
 
-    int num = 0;
+    long num = 0;
 
     boolean flag = false;
     for(int i = 0; i < originalValue.length(); i++) {
@@ -97,25 +97,25 @@ public class Main {
     }
     
 
-    String na = Integer.toString(num);
+    String na = Long.toString(num);
 
     
     
     
 
-	
+  
 
-		String result = Integer.toString(Integer.parseInt(originalValue, base1), base2);
+    String result = Long.toString(Long.parseLong(originalValue, base1), base2);
 
     if(flag) {
-      result = Integer.toString(Integer.parseInt(na, base1), base2);
+      result = Long.toString(Long.parseLong(na, base1), base2);
       result = result.toUpperCase();
     }
     
     return originalValue + " base " + base1 + " = " + result.toUpperCase() + " base " + base2;
-		
+    
 
-	}
+  }
 
 
 
